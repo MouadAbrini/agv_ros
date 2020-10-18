@@ -4,7 +4,7 @@
   <!-- Wheels -->
   <property name="wheel_radius" value="0.07" /> 
   <property name="wheel_height" value="0.05" />
-  <property name="wheel_mass" value="2.5" /> <!-- in kg-->
+  <property name="wheel_mass" value="0.8" /> <!-- in kg-->
   
 
   
@@ -19,14 +19,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="${flipY*M_PI/2} 0  0 " /> 
         <geometry>
-          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+          <mesh filename="package://agv_description/meshes/wheel.stl"/>
         </geometry>
         <material name="DarkGray" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${flipY*M_PI/2} 0 0 " />
         <geometry>
-          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+          <mesh filename="package://agv_description/meshes/wheel.stl"/>
         </geometry>
       </collision>
       <inertial>
@@ -37,13 +37,12 @@
     </link>
 
     <gazebo reference="${fb}_${lr}_wheel">
-      <mu1 value="1.0"/>
-      <mu2 value="1.0"/>
-      <kp  value="10000000.0" />
-      <kd  value="1.0" />
+      <mu1 value="0.1"/>
+      <mu2 value="0.1"/>
+      <kp  value="500000.0" />
+      <kd  value="10.0" />
       <fdir1 value="1 0 0"/>
       <material>Gazebo/Grey</material>
-      <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
     <joint name="${fb}_${lr}_wheel_joint" type="continuous">
