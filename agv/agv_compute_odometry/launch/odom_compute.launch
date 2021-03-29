@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="agv_compute_odometry" type="odometry.py" name="odometry_compute_node" output="screen" />
+    <node pkg="agv_compute_odometry" type="noisy_odom.py" name="noisy_odometry_compute_node" output="screen" />
+</launch>
